@@ -2,11 +2,13 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "0.1.1" // 修改为你的版本号
+version = "0.0.1"    //版本号，以后每次更新library都得更改
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+
+    resourcePrefix "mvp_"  //资源前缀
 
     defaultConfig {
         minSdkVersion 14
@@ -23,9 +25,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+    lintOptions {
+        abortOnError false
     }
 }
 
@@ -38,135 +39,76 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-def siteUrl = 'https://github.com/quickhc/gsmvp' // 修改为你的项目的主页
-def gitUrl = 'https://github.com/quickhc/gsmvp.git' // 修改为你的Git仓库的url
-
-group = "com.gslibrary" // Maven Group ID for the artifact，一般填你唯一的包名
-
+def siteUrl = 'https://github.com/quickhc/gsmvp'    //Homepage URL of the library
+def gitUrl = 'https://github.com/quickhc/gsmvp.git'    //Git repository url
+def issueUrl = 'https://github.com/quickhc/gsmvp/issues'    //issue url of the library
+group = "com.gslibrary"    //
 install {
-
     repositories.mavenInstaller {
-
-// This generates POM.xml with proper parameters
-
+        // This generates POM.xml with proper parameters
         pom {
-
             project {
-
                 packaging 'aar'
-
-// Add your description here
-
-                name ' Android. mvp' //项目描述
-
+                // Add your description here
+                name 'A custom imageview that can add different style tag on corner'
                 url siteUrl
-
-// Set your license
-
+                // Set your license
                 licenses {
-
                     license {
-
                         name 'The Apache Software License, Version 2.0'
-
                         url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-
                     }
-
                 }
-
                 developers {
-
                     developer {
-
-                        id 'gs' //填写的一些基本信息
-
-                        name 'gs'
-
-                        email '15138965192@126.com'
-
+                        id 'gs' //your user ID
+                        name 'gs' //your name
+                        email '15138965192@126.com' //your email
                     }
-
                 }
-
                 scm {
-
                     connection gitUrl
-
                     developerConnection gitUrl
-
                     url siteUrl
-
                 }
-
             }
-
         }
-
     }
-
 }
-
 task sourcesJar(type: Jar) {
-
     from android.sourceSets.main.java.srcDirs
-
     classifier = 'sources'
-
 }
-
 task javadoc(type: Javadoc) {
-
     source = android.sourceSets.main.java.srcDirs
-
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-
 }
-
 task javadocJar(type: Jar, dependsOn: javadoc) {
-
     classifier = 'javadoc'
-
     from javadoc.destinationDir
-
 }
-
 artifacts {
-
     archives javadocJar
-
     archives sourcesJar
-
 }
-
 Properties properties = new Properties()
-
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
 bintray {
-
     user = properties.getProperty("bintray.user")
-
     key = properties.getProperty("bintray.apikey")
-
     configurations = ['archives']
-
     pkg {
-
-        repo = "maven"
-
-        name = "quickmvp" //发布到JCenter上的项目名字
-
+        repo = "maven"    //发布到Bintray的哪个仓库
+        name = "gslibrary"    //发布到Bintray上的名字
+        desc = "A library to add tag for ImageView."    //项目描述
         websiteUrl = siteUrl
-
         vcsUrl = gitUrl
-
+        issueTrackerUrl = issueUrl
         licenses = ["Apache-2.0"]
-
+        labels = ['android']    //标签
         publish = true
-
+        publicDownloadNumbers = true
     }
-
 }
 
 
