@@ -1,7 +1,22 @@
 package com.gslibrary.http;
 
-//接口回调
- public interface XCallBack{
-   void onResponse(String result);
-   void onFail(String result);
- }
+import com.gslibrary.utils.LogUtils;
+
+/**
+ * 通用回调类
+ */
+public class XCallBack {
+
+    public final static String Tag = "CallBack";
+
+    public void onResponse(String result) {
+        LogUtils.i(Tag, result);
+    }
+
+    ;
+
+    public void onFail(String result) {
+    }
+
+    ;
+}

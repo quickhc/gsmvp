@@ -64,6 +64,8 @@ public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends App
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         try {// 设置布局文件、初始化布局文件中的控件、初始化控件的监听、进行数据初始化。（子类重写这些方法）
             setContentView();
+            initView();
+            initListen();
         } catch (Exception e) {
             LogUtils.e(TAG, e.getMessage(), e);
         }
@@ -74,6 +76,16 @@ public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends App
      * 设置布局文件
      */
     public abstract void setContentView();
+
+    /**
+     * 初始化控件
+     */
+    public abstract void initView();
+
+    /**
+     * 设置监听事件
+     */
+    public abstract void initListen();
 
     /**
      * 控制台上打印

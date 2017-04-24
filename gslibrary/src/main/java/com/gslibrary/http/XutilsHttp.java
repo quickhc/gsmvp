@@ -51,7 +51,7 @@ public class XutilsHttp {
         RequestParams params = new RequestParams(url);
         if (null != maps && !maps.isEmpty()){
             for (Map.Entry<String,String> entry : maps.entrySet()){
-                params.addQueryStringParameter(entry.getKey(),entry.getValue());
+                params.addParameter(entry.getKey(),entry.getValue());
             }
         }
         x.http().get(params, new Callback.CommonCallback<String>() {
@@ -67,7 +67,7 @@ public class XutilsHttp {
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
                 hasError = true;
-                Toast.makeText(x.app(), ex.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(x.app().getApplicationContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
             }
 
             @Override
