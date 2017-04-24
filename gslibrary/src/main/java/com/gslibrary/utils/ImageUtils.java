@@ -20,6 +20,7 @@ public class ImageUtils {
 
 
     public void setImageForUrl(){
+        //TODO
         x.image().bind(new ImageView(x.app().getApplicationContext()),"",defaultImage);
     }
 
