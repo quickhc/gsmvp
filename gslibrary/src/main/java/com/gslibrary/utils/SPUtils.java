@@ -8,8 +8,7 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 /*********************************************
- ***       河南坚磐科技电子有限公司        ***
- ***                                       ***
+ * Sharepreences工具类
  ***       Created by HC on 2017/4/24.       ***
  *********************************************/
 

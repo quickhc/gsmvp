@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +21,12 @@ import com.gslibrary.utils.Toasts;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends AppCompatActivity {
-
+/**
+ * MVPbase类
+ * @param <V>
+ * @param <T>
+ */
+public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends FragmentActivity {
     /**
      * 标示
      */

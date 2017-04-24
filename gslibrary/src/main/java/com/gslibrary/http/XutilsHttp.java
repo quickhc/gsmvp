@@ -12,8 +12,7 @@ import java.util.Map;
 
 
 /*********************************************
- ***       河南坚磐科技电子有限公司        ***
- ***                                       ***
+ * 通用网络请求
  ***       Created by HC on 2017/4/14.       ***
  *********************************************/
 
@@ -43,20 +42,22 @@ public class XutilsHttp {
 
     /**
      * 普通get请求
+     *
      * @param url
      * @param maps
      * @param callback
      */
-    public void get(String url, Map<String,String> maps, final XCallBack callback){
+    public void get(String url, Map<String, String> maps, final XCallBack callback) {
         RequestParams params = new RequestParams(url);
-        if (null != maps && !maps.isEmpty()){
-            for (Map.Entry<String,String> entry : maps.entrySet()){
-                params.addParameter(entry.getKey(),entry.getValue());
+        if (null != maps && !maps.isEmpty()) {
+            for (Map.Entry<String, String> entry : maps.entrySet()) {
+                params.addParameter(entry.getKey(), entry.getValue());
             }
         }
         x.http().get(params, new Callback.CommonCallback<String>() {
             private boolean hasError = false;
             private String result = null;
+
             @Override
             public void onSuccess(String result) {
                 if (result != null) {

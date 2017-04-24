@@ -4,6 +4,9 @@ import android.widget.Toast;
 
 import org.xutils.x;
 
+/**
+ * Toast弹窗工具类
+ */
 public class Toasts {
     private Toasts() {
         /* cannot be instantiated */

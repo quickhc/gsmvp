@@ -3,6 +3,10 @@ package com.gslibrary.base;
 
 import java.util.Map;
 
+/**
+ * basePresenter类
+ * @param <T>
+ */
 public abstract class BasePresenter<T> {
     public T mView;
 

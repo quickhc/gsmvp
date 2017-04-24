@@ -8,8 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /*********************************************
- ***       河南坚磐科技电子有限公司        ***
- ***                                       ***
+ ***        网络工具
  ***       Created by HC on 2017/4/24.       ***
  *********************************************/
 

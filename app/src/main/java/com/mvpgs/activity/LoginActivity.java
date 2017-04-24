@@ -50,8 +50,6 @@ public class LoginActivity extends BaseMvpActivity<LoginView,LoginPresenter> imp
             }
         });
     }
-
-
     @Override
     public LoginPresenter initPresenter() {
         return loginPresenter;
