@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "0.0.1"    //版本号，以后每次更新library都得更改
+version = "0.1.0"    //版本号，以后每次更新library都得更改
 
 android {
     compileSdkVersion 25
@@ -37,6 +37,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'org.xutils:xutils:3.5.0'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'de.greenrobot:eventbus:2.2.+'
+
     testCompile 'junit:junit:4.12'
 }
 
