@@ -6,27 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
 
-import org.xutils.image.ImageOptions;
+import com.gslibrary.utils.ImageUtils;
+
 import org.xutils.x;
 
 public class ViewHolder {
 	private final SparseArray<View> mViews;
 	private int mPosition;
 	private View mConvertView;
-	// TODO 完善options的配置
-	private ImageOptions opSquaer = new ImageOptions.Builder()
-			// 设置加载过程中的图片
-			.setUseMemCache(true).setImageScaleType(ScaleType.FIT_XY)
-			// 设置显示圆形图片
-			.setFadeIn(true).build();
-	private ImageOptions opRound = new ImageOptions.Builder()
-			// 设置加载过程中的图片
-			.setUseMemCache(true).setImageScaleType(ScaleType.CENTER_CROP)
-			// 设置显示圆形图片
-			.setCircular(true).setFadeIn(true).build();
 
 	private ViewHolder(Context context, ViewGroup parent, int layoutId, int position) {
 		this.mPosition = position;
@@ -101,13 +90,13 @@ public class ViewHolder {
 	 */
 	public ViewHolder setRoundAvatarByUrl(int viewId, String url) {
 		ImageView view = this.getView(viewId);
-		x.image().bind(view, url, opRound);
+		x.image().bind(view, url, ImageUtils.getRound());
 		return this;
 	}
 
 	public ViewHolder setSquareImageByUrl(int viewId, String url) {
 		ImageView view = this.getView(viewId);
-		x.image().bind(view, url, opSquaer);
+		x.image().bind(view, url, ImageUtils.getSquaer());
 		return this;
 	}
 

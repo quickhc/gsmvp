@@ -23,14 +23,14 @@ import java.util.Map;
 public class LoginPresenter extends BasePresenter<LoginView> {
 
     public void onBtnClick(String username, String password) {
-        sendHttp(UrlConston.url, new RMPparams().getLogin(username, password));
+        sendHttp(UrlConston.aus, new RMPparams().getAus());
     }
 
     ;
 
     @Override
     public void sendHttp(String url, Map<String, String> params) {
-        XutilsHttp.getInstance().get(url, params, new XCallBack() {
+        XutilsHttp.getInstance().upLoadJson(url, params, new XCallBack() {
             @Override
             public void onResponse(String result) {
                 super.onResponse(result);
