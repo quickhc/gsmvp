@@ -80,6 +80,7 @@ public class LoginActivity extends BaseMvpActivity<LoginView, LoginPresenter> im
                 loginPresenter.onBtnClick("郑州", "8e02612c49de6528d80a429fc865faa5");
             }
         });
+
     }
 
     @Override
