@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/gslibrary/src/main/java/com/gslibrary/adapter/ViewHolder.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gslibrary/src/main/java/com/gslibrary/base/BaseMvpActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gslibrary/src/main/java/com/gslibrary/base/BasePresenter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gslibrary/src/main/java/com/gslibrary/http/XCallBack.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gslibrary/src/main/java/com/gslibrary/http/XutilsHttp.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gslibrary/src/main/java/com/gslibrary/pulltorefresh/internal/LoadingLayout.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/gslibrary/src/main/java/com/gslibrary/utils/DataCleanManager.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gslibrary/src/main/java/com/gslibrary/utils/NetUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gslibrary/src/main/java/com/gslibrary/utils/SDCardUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gslibrary/src/main/java/com/gslibrary/utils/SPUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gslibrary/src/main/java/com/gslibrary/utils/ScreenUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gslibrary/src/main/java/com/gslibrary/utils/Toasts.java" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

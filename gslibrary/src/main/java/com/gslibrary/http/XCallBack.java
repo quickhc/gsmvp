@@ -3,7 +3,7 @@ package com.gslibrary.http;
 import com.gslibrary.utils.LogUtils;
 
 /**
- * 通用回调类
+ * 通用网络请求回调
  */
 public class XCallBack {
 
@@ -13,10 +13,7 @@ public class XCallBack {
         LogUtils.i(Tag, result);
     }
 
-    ;
-
     public void onFail(String result) {
     }
 
-    ;
 }

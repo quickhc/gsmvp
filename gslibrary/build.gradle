@@ -2,7 +2,11 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "0.1.0"    //版本号，以后每次更新library都得更改
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+version = "0.1.1"    //版本号，以后每次更新library都得更改
 
 android {
     compileSdkVersion 25

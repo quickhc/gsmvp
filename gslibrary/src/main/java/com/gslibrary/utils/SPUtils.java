@@ -7,11 +7,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
-/*********************************************
- * Sharepreences工具类
- ***       Created by HC on 2017/4/24.       ***
- *********************************************/
-
+/**
+ * SharePreferences工具类
+ *
+ * @author hc
+ */
 public class SPUtils {
     public SPUtils() {
 		/* cannot be instantiated */
@@ -21,7 +21,7 @@ public class SPUtils {
     /**
      * 保存在手机里面的文件名
      */
-    public static final String FILE_NAME = " present_user";
+    public static final String FILE_NAME = "present_user";
 
     /**
      * 保存数据的方法，我们需要拿到保存数据的具体类型，然后根据类型调用不同的保存方法
@@ -134,7 +134,7 @@ public class SPUtils {
      * 移除某个key值已经对应的值
      *
      * @param context
-     * @param （fileName为null时，使用默认的）
+     *            指定文件名（fileName为null时，使用默认的）
      * @param key
      */
     public static void remove(Context context, String fileName, String key) {

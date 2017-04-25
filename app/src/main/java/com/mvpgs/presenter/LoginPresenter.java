@@ -10,6 +10,8 @@ import com.mvpgs.view.LoginView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /*********************************************
@@ -20,21 +22,27 @@ import java.util.Map;
 
 public class LoginPresenter extends BasePresenter<LoginView> {
 
-    public void onBtnClick(String username,String password){
-        sendHttp(UrlConston.url,new RMPparams().getLogin(username,password));
-    };
+    public void onBtnClick(String username, String password) {
+        sendHttp(UrlConston.url, new RMPparams().getLogin(username, password));
+    }
+
+    ;
 
     @Override
-    public void sendHttp(String url,Map<String, String> params) {
+    public void sendHttp(String url, Map<String, String> params) {
         XutilsHttp.getInstance().get(url, params, new XCallBack() {
             @Override
             public void onResponse(String result) {
                 super.onResponse(result);
                 try {
-                    JSONObject jsonObject=new JSONObject(result);
-                    if("200".equals(jsonObject.getString("resultcode"))){
-                        mView.loginSuccess();
-                    }else{
+                    JSONObject jsonObject = new JSONObject(result);
+                    if ("200".equals(jsonObject.getString("resultcode"))) {
+                        List<String> mlist = new ArrayList<String>();
+                        for (int i = 0; i < 10; i++) {
+                            mlist.add("" + i);
+                        }
+                        mView.loginSuccess(mlist);
+                    } else {
                         mView.loginFail(jsonObject.getString("reason"));
                     }
                 } catch (JSONException e) {
@@ -47,6 +55,8 @@ public class LoginPresenter extends BasePresenter<LoginView> {
             public void onFail(String result) {
                 mView.loginFail("出错");
             }
+
+
         });
     }
 }

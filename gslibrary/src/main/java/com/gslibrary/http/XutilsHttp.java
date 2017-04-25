@@ -25,9 +25,9 @@ public class XutilsHttp {
     }
 
     /**
-     *   * 单利模式
-     *   * @return
-     *   
+     *   * 单利模式
+     *   * @return
+     *
      */
     public static XutilsHttp getInstance() {
         if (instance == null) {
@@ -85,4 +85,3 @@ public class XutilsHttp {
         });
     }
 }
-

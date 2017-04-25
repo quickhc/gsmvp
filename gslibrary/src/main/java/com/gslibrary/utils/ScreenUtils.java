@@ -9,15 +9,14 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.WindowManager;
 
-/*********************************************
- * 屏幕分辨率工具类
- ***       Created by HC on 2017/4/24.       ***
- *********************************************/
-
+/**
+ * 获得屏幕相关的辅助类
+ *
+ * @author hc
+ */
 public class ScreenUtils {
-
     private ScreenUtils() {
-        /* cannot be instantiated */
+		/* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 
@@ -115,7 +114,7 @@ public class ScreenUtils {
      * dp转px
      *
      * @param context
-     * @param
+     * @param val
      * @return
      */
     public static int dp2px(Context context, float dpVal) {
@@ -127,7 +126,7 @@ public class ScreenUtils {
      * sp转px
      *
      * @param context
-     * @param
+     * @param val
      * @return
      */
     public static int sp2px(Context context, float spVal) {
@@ -150,11 +149,12 @@ public class ScreenUtils {
     /**
      * px转sp
      *
-     * @param
+     * @param fontScale
      * @param pxVal
      * @return
      */
     public static float px2sp(Context context, float pxVal) {
         return (pxVal / context.getResources().getDisplayMetrics().scaledDensity);
     }
+
 }

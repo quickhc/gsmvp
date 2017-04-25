@@ -70,6 +70,7 @@ public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends Fra
             setContentView();
             initView();
             initListen();
+            initData();
         } catch (Exception e) {
             LogUtils.e(TAG, e.getMessage(), e);
         }
@@ -90,6 +91,9 @@ public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends Fra
      * 设置监听事件
      */
     public abstract void initListen();
+
+
+    public abstract void initData();
 
     /**
      * 控制台上打印

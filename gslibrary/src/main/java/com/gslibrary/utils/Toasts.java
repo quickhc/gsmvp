@@ -4,21 +4,15 @@ import android.widget.Toast;
 
 import org.xutils.x;
 
-/**
- * Toast弹窗工具类
- */
 public class Toasts {
     private Toasts() {
-        /* cannot be instantiated */
+		/* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 
     public static boolean isShow = true;
 
     /**
-     * ��ʱ����ʾToast
-     *
-     * @param context
      * @param message
      */
     public static void showShort(CharSequence message) {
@@ -33,9 +27,6 @@ public class Toasts {
     }
 
     /**
-     * ��ʱ����ʾToast
-     *
-     * @param context
      * @param message
      */
     public static void showLong(CharSequence message) {

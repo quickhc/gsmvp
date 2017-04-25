@@ -1,6 +1,5 @@
 package com.gslibrary.base;
 
-
 import java.util.Map;
 
 /**

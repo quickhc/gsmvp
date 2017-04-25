@@ -2,6 +2,8 @@ package com.mvpgs.view;
 
 import com.gslibrary.base.BaseView;
 
+import java.util.List;
+
 /*********************************************
  ***       河南坚磐科技电子有限公司        ***
  ***                                       ***
@@ -10,7 +12,7 @@ import com.gslibrary.base.BaseView;
 
 public interface LoginView extends BaseView {
 
-    void loginSuccess();
+    void loginSuccess(List<String> mlist);
 
     void loginFail(String message);
 
