@@ -4,11 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
+    <com.gslibrary.weight.textview.SuperTextView
+        xmlns:stv="http://schemas.android.com/apk/res-auto"
         android:id="@+id/bt"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="123"/>
+        android:text="123"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        stv:corner="25dp"
+        stv:solid="#8d8d8d"
+        stv:autoAdjust="false" />
 
     <com.gslibrary.pulltorefresh.PullToRefreshListView
         xmlns:ptr="http://schemas.android.com/apk/res-auto"

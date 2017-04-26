@@ -44,6 +44,9 @@ dependencies {
     compile 'org.xutils:xutils:3.5.0'
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'de.greenrobot:eventbus:2.2.+'
+    compile 'com.youth.banner:banner:1.4.9'
+    compile 'q.rorbin:badgeview:1.1.0'
+    compile 'cn.yipianfengye.android:zxing-library:2.1'
 
     testCompile 'junit:junit:4.12'
 }
@@ -109,7 +112,7 @@ bintray {
     pkg {
         repo = "maven"    //发布到Bintray的哪个仓库
         name = "gslibrary"    //发布到Bintray上的名字
-        desc = "A library to add tag for ImageView."    //项目描述
+        desc = "快速开发的框架，应用一些常用的控件"    //项目描述
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         issueTrackerUrl = issueUrl

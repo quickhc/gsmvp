@@ -1,7 +1,6 @@
 package com.mvpgs.activity;
 
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.gslibrary.adapter.CommonAdapter;
@@ -11,6 +10,7 @@ import com.gslibrary.pulltorefresh.Mode;
 import com.gslibrary.pulltorefresh.OnRefreshListener2;
 import com.gslibrary.pulltorefresh.PullToRefreshBase;
 import com.gslibrary.pulltorefresh.PullToRefreshListView;
+import com.gslibrary.weight.textview.SuperTextView;
 import com.mvpgs.R;
 import com.mvpgs.presenter.LoginPresenter;
 import com.mvpgs.view.LoginView;
@@ -28,7 +28,7 @@ public class LoginActivity extends BaseMvpActivity<LoginView, LoginPresenter> im
 
     private LoginPresenter loginPresenter;
 
-    private Button bt;
+    private SuperTextView bt;
     private PullToRefreshListView listview;
     private List<String> mlist = new ArrayList<String>();
     private CommonAdapter<String> mAdapter;
@@ -51,7 +51,7 @@ public class LoginActivity extends BaseMvpActivity<LoginView, LoginPresenter> im
 
     @Override
     public void initView() {
-        bt = (Button) findViewById(R.id.bt);
+        bt = (SuperTextView) findViewById(R.id.bt);
         listview = (PullToRefreshListView) findViewById(R.id.listview);
         listview.setMode(Mode.BOTH);
     }
