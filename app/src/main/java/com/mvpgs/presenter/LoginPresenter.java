@@ -1,8 +1,8 @@
 package com.mvpgs.presenter;
 
 import com.gslibrary.base.BasePresenter;
-import com.gslibrary.http.XCallBack;
 import com.gslibrary.http.XutilsHttp;
+import com.mvpgs.utils.MyCallBack;
 import com.mvpgs.utils.RMPparams;
 import com.mvpgs.utils.UrlConston;
 import com.mvpgs.view.LoginView;
@@ -23,35 +23,25 @@ import java.util.Map;
 public class LoginPresenter extends BasePresenter<LoginView> {
 
     public void onBtnClick(String username, String password) {
-        sendHttp(UrlConston.aus, new RMPparams().getAus());
+        sendHttp(UrlConston.url, new RMPparams().getLogin(username, password));
     }
-
-    ;
 
     @Override
     public void sendHttp(String url, Map<String, String> params) {
-        XutilsHttp.getInstance().upLoadJson(url, params, new XCallBack() {
+        XutilsHttp.getInstance().get(url, params, new MyCallBack() {
             @Override
-            public boolean onResponse(String result) {
-                boolean is = super.onResponse(result);
-                if (is) {
-                    try {
-                        JSONObject jsonObject = new JSONObject(result);
-                        if ("200".equals(jsonObject.getString("resultcode"))) {
-                            List<String> mlist = new ArrayList<String>();
-                            for (int i = 0; i < 10; i++) {
-                                mlist.add("" + i);
-                            }
-                            mView.loginSuccess(mlist);
-                        } else {
-                            mView.loginFail(jsonObject.getString("reason"));
+            public void onSuccess(String result) {
+                super.onSuccess(result);
+                try {
+                    JSONObject jsonObject = new JSONObject(result);
+                        List<String> mlist = new ArrayList<String>();
+                        for (int i = 0; i < 10; i++) {
+                            mlist.add("" + i);
                         }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                        mView.loginSuccess(mlist);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-
-                return true;
             }
 
             @Override

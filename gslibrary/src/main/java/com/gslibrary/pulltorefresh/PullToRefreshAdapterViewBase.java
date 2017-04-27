@@ -473,4 +473,14 @@ public abstract class PullToRefreshAdapterViewBase<T extends AbsListView> extend
 			}
 		}
 	}
+
+	public void autoRefresh(){
+		this.postDelayed(new Runnable() {
+
+			@Override
+			public void run() {
+				setRefreshing(true);  //直接调用是没有用的
+			}
+		}, 100);
+	}
 }

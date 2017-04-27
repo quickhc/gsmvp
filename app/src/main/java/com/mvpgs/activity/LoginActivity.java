@@ -6,7 +6,6 @@ import android.widget.ListView;
 import com.gslibrary.adapter.CommonAdapter;
 import com.gslibrary.adapter.ViewHolder;
 import com.gslibrary.base.BaseMvpActivity;
-import com.gslibrary.pulltorefresh.Mode;
 import com.gslibrary.pulltorefresh.OnRefreshListener2;
 import com.gslibrary.pulltorefresh.PullToRefreshBase;
 import com.gslibrary.pulltorefresh.PullToRefreshListView;
@@ -53,7 +52,12 @@ public class LoginActivity extends BaseMvpActivity<LoginView, LoginPresenter> im
     public void initView() {
         bt = (SuperTextView) findViewById(R.id.bt);
         listview = (PullToRefreshListView) findViewById(R.id.listview);
-        listview.setMode(Mode.BOTH);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        listview.autoRefresh();
     }
 
     @Override

@@ -5,20 +5,16 @@ import com.gslibrary.utils.LogUtils;
 /**
  * 通用网络请求回调
  */
-public class XCallBack {
+public abstract class XCallBack {
 
     public final static String Tag = "CallBack";
 
-    //返回值用于全局判断
+    //统一性的逻辑处理
     public boolean onResponse(String result) {
         LogUtils.i(Tag, result);
-//        if(!"".equals(result)){
-//            onFail("123");
         return false;
-//        }
     }
 
-    public void onFail(String result) {
-    }
+    public abstract void onFail(String result) ;
 
 }
