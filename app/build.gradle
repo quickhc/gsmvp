@@ -32,4 +32,12 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     testCompile 'junit:junit:4.12'
     compile project(':gslibrary')
+    //    compile(group: 'com.gslibrary', name: 'gslibrary', version: '0.1.4', ext: 'aar', classifier: '')
+    //    compile 'com.gslibrary:gslibrary:0.1.0'
+    //    compile 'cn.yipianfengye.android:zxing-library:2.1'
+    //    compile 'org.xutils:xutils:3.5.0'
 }
+tasks.withType(Javadoc) {
+    options.encoding = "UTF-8"
+}
+

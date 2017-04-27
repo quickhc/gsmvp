@@ -6,7 +6,11 @@ tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
 
-version = "0.1.2"    //版本号，以后每次更新library都得更改
+tasks.withType(Javadoc) {
+    options.encoding = "UTF-8"
+}
+
+version = "0.1.5"    //版本号，以后每次更新library都得更改
 
 android {
     compileSdkVersion 25
@@ -41,12 +45,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'org.xutils:xutils:3.5.0'
-    compile 'com.google.code.gson:gson:2.8.0'
-    compile 'de.greenrobot:eventbus:2.2.+'
-    compile 'com.youth.banner:banner:1.4.9'
-    compile 'q.rorbin:badgeview:1.1.0'
-    compile 'cn.yipianfengye.android:zxing-library:2.1'
 
     testCompile 'junit:junit:4.12'
 }

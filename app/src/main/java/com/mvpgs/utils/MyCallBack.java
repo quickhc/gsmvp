@@ -4,7 +4,6 @@ import com.gslibrary.http.XCallBack;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.xutils.common.util.LogUtil;
 
 /*********************************************
  ***       XCallBack实现类                 ***
@@ -26,7 +25,8 @@ public class MyCallBack extends XCallBack {
                 onFail(jsonObject.getString("reason"));
             }
         } catch (JSONException e) {
-            LogUtil.e(e.toString());
+
+//            LogUtil.e(e.toString());
         }
         return true;
     }
