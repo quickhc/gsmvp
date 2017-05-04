@@ -24,7 +24,7 @@ import java.util.List;
  ***       Created by HC on 2017/4/24.       ***
  *********************************************/
 
-public class LoginActivity extends BaseMvpActivity<LoginView, LoginPresenter> implements LoginView {
+public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements LoginView {
 
     private LoginPresenter loginPresenter;
 
@@ -44,6 +44,16 @@ public class LoginActivity extends BaseMvpActivity<LoginView, LoginPresenter> im
     }
 
     @Override
+    public void showMessage() {
+
+    }
+
+    @Override
+    public void loadData() {
+        listview.autoRefresh();
+    }
+
+    @Override
     public void setContentView() {
         setContentView(R.layout.main_activity);
         loginPresenter = new LoginPresenter();
@@ -54,13 +64,16 @@ public class LoginActivity extends BaseMvpActivity<LoginView, LoginPresenter> im
         bt = (SuperTextView) findViewById(R.id.bt);
         listview = (PullToRefreshListView) findViewById(R.id.listview);
         listview.setMode(Mode.BOTH);
+
+        mAdapter = new CommonAdapter<String>(mContext, mlist, R.layout.layout) {
+            @Override
+            public void convert(ViewHolder helper, String item) {
+                helper.setText(R.id.tv, item);
+            }
+        };
+        listview.setAdapter(mAdapter);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        listview.autoRefresh();
-    }
 
     @Override
     public void initListen() {
@@ -87,17 +100,6 @@ public class LoginActivity extends BaseMvpActivity<LoginView, LoginPresenter> im
             }
         });
 
-    }
-
-    @Override
-    public void initData() {
-        mAdapter = new CommonAdapter<String>(mContext, mlist, R.layout.layout) {
-            @Override
-            public void convert(ViewHolder helper, String item) {
-                helper.setText(R.id.tv, item);
-            }
-        };
-        listview.setAdapter(mAdapter);
     }
 
     @Override

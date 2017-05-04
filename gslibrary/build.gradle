@@ -10,7 +10,7 @@ tasks.withType(Javadoc) {
     options.encoding = "UTF-8"
 }
 
-version = "0.1.5"    //版本号，以后每次更新library都得更改
+version = "0.1.9"    //版本号，以后每次更新library都得更改
 
 android {
     compileSdkVersion 25
@@ -45,7 +45,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
-
+    compile files('libs/xutils-3.5.0.jar')
+    compile files('libs/gson-2.8.0.jar')
+    compile files('libs/eventbus-3.0.0.jar')
     testCompile 'junit:junit:4.12'
 }
 

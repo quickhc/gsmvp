@@ -1,7 +1,5 @@
 package com.gslibrary.base;
 
-import java.util.Map;
-
 /**
  * basePresenter类
  * @param <T>
@@ -11,12 +9,16 @@ public abstract class BasePresenter<T> {
 
     public void attach(T mView) {
         this.mView = mView;
+        onStart();
     }
 
     public void dettach() {
         mView = null;
     }
 
-    public abstract void sendHttp(String url, Map<String, String> params);
+    /**
+     * 开始填充数据
+     */
+    public abstract void onStart();
 
 }

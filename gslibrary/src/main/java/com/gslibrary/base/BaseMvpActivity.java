@@ -23,10 +23,10 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * MVPbase类
- * @param <V>
+ *
  * @param <T>
  */
-public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends FragmentActivity {
+public abstract class BaseMvpActivity<T extends BasePresenter> extends FragmentActivity  {
     /**
      * 标示
      */
@@ -70,7 +70,6 @@ public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends Fra
             setContentView();
             initView();
             initListen();
-            initData();
         } catch (Exception e) {
             LogUtils.e(TAG, e.getMessage(), e);
         }
@@ -80,20 +79,22 @@ public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends Fra
     /**
      * 设置布局文件
      */
-    public abstract void setContentView();
+    protected abstract void setContentView();
 
     /**
      * 初始化控件
      */
-    public abstract void initView();
+    protected abstract void initView();
 
     /**
      * 设置监听事件
      */
-    public abstract void initListen();
+    protected abstract void initListen();
 
-
-    public abstract void initData();
+    /**
+     * 设置控制器
+     */
+    protected abstract T initPresenter();
 
     /**
      * 控制台上打印
@@ -294,15 +295,15 @@ public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends Fra
     @Override
     protected void onResume() {
         super.onResume();
-        presenter.attach((V) this);
+        presenter.attach(this);
+        presenter.onStart();
     }
 
     @Override
     protected void onDestroy() {
-        presenter.dettach();
         super.onDestroy();
+        if (presenter != null)
+            presenter.dettach();
     }
-
-    public abstract T initPresenter();
 
 }

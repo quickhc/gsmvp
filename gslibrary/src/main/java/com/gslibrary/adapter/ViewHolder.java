@@ -12,6 +12,7 @@ import com.gslibrary.utils.ImageUtils;
 
 import org.xutils.x;
 
+
 public class ViewHolder {
 	private final SparseArray<View> mViews;
 	private int mPosition;

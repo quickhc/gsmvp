@@ -26,7 +26,6 @@ public class LoginPresenter extends BasePresenter<LoginView> {
         sendHttp(UrlConston.url, new RMPparams().getLogin(username, password));
     }
 
-    @Override
     public void sendHttp(String url, Map<String, String> params) {
         XutilsHttp.getInstance().get(url, params, new MyCallBack() {
             @Override
@@ -51,5 +50,10 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
 
         });
+    }
+
+    @Override
+    public void onStart() {
+        mView.loadData();
     }
 }
