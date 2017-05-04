@@ -10,7 +10,7 @@ tasks.withType(Javadoc) {
     options.encoding = "UTF-8"
 }
 
-version = "0.1.9"    //版本号，以后每次更新library都得更改
+version = "0.2.0"    //版本号，以后每次更新library都得更改
 
 android {
     compileSdkVersion 25

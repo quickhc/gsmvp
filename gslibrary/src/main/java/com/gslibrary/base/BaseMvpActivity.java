@@ -296,7 +296,6 @@ public abstract class BaseMvpActivity<T extends BasePresenter> extends FragmentA
     protected void onResume() {
         super.onResume();
         presenter.attach(this);
-        presenter.onStart();
     }
 
     @Override
