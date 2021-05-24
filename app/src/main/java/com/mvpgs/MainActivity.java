@@ -2,7 +2,7 @@ package com.mvpgs;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /*********************************************
  ***       河南坚磐科技电子有限公司        ***

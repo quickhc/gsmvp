@@ -1,30 +1,17 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
-
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
-}
-
-tasks.withType(Javadoc) {
-    options.encoding = "UTF-8"
-}
-
-version = "0.2.1"    //版本号，以后每次更新library都得更改
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 30
+    buildToolsVersion '30.0.3'
 
     resourcePrefix "mvp_"  //资源前缀
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 21
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
     buildTypes {
@@ -40,87 +27,18 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile files('libs/xutils-3.5.0.jar')
-    compile files('libs/gson-2.8.0.jar')
-    compile files('libs/eventbus-3.0.0.jar')
-    testCompile 'junit:junit:4.12'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation files('libs/xutils-3.5.0.jar')
+    implementation files('libs/gson-2.8.0.jar')
+    implementation files('libs/eventbus-3.0.0.jar')
+    testImplementation 'junit:junit:4.12'
 }
 
-def siteUrl = 'https://github.com/quickhc/gsmvp'    //Homepage URL of the library
-def gitUrl = 'https://github.com/quickhc/gsmvp.git'    //Git repository url
-def issueUrl = 'https://github.com/quickhc/gsmvp/issues'    //issue url of the library
-group = "com.gslibrary"    //
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
-        pom {
-            project {
-                packaging 'aar'
-                // Add your description here
-                name 'A custom imageview that can add different style tag on corner'
-                url siteUrl
-                // Set your license
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'gs' //your user ID
-                        name 'gs' //your name
-                        email '15138965192@126.com' //your email
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-                }
-            }
-        }
-    }
-}
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-    configurations = ['archives']
-    pkg {
-        repo = "maven"    //发布到Bintray的哪个仓库
-        name = "gslibrary"    //发布到Bintray上的名字
-        desc = "快速开发的框架，应用一些常用的控件"    //项目描述
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        issueTrackerUrl = issueUrl
-        licenses = ["Apache-2.0"]
-        labels = ['android']    //标签
-        publish = true
-        publicDownloadNumbers = true
-    }
-}
+group = 'com.github.xy1ito1'
+
 
 
